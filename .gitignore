@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Dados operacionais: distribuídos separadamente do código.
+/dados_edinheiro/*
+!/dados_edinheiro/.gitkeep

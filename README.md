@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dashboard e-Dinheiro — v1
 
-## Getting Started
+Dashboard local em Next.js para acompanhar usuários, transações, benefícios, comércios e indicadores da rede e-Dinheiro em Niterói.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 20 ou superior
+- npm 10 ou superior
+- Os dados operacionais fornecidos separadamente
+
+## Como executar
 
 ```bash
+git clone <URL_DO_REPOSITORIO>
+cd dashboard-e-dinheiro
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para validar a aplicação antes de executar, use:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Dados necessários
 
-To learn more about Next.js, take a look at the following resources:
+Os dados não são versionados neste repositório. Após receber a pasta `dados_edinheiro`, copie seu conteúdo para `dados_edinheiro/` na raiz do projeto, preservando estes nomes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+dados_edinheiro/
+├── usuarios_niteroi.json
+├── comercios_empresa_131.json
+├── beneficios_empresa_131.json
+├── indicadores-mensais_empresa_131.json
+├── dicionariov2.csv
+└── transacoes_bruto_niteroi.csv
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Sem esses arquivos, as rotas de dados do dashboard não conseguirão carregar as informações.
 
-## Deploy on Vercel
+## Estrutura versionada
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `src/` — interface e rotas da API do dashboard.
+- `public/` — recursos estáticos.
+- `etl/` — scripts auxiliares de preparação de dados.
+- Arquivos de configuração e dependências (`package.json` e `package-lock.json`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`node_modules/`, `.next/`, arquivos de ambiente e o conteúdo de `dados_edinheiro/` são ignorados pelo Git.
