@@ -22,7 +22,6 @@
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
   /* Layout Variables */
-  --sidebar-width: 260px;
   --border-radius: 12px;
   --transition-speed: 0.3s;
 }
@@ -84,6 +83,97 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeIn var(--transition-speed) ease-out forwards;
 }
 
+.info-tooltip {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+  z-index: 2;
+}
+
+.info-tooltip__trigger {
+  align-items: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: help;
+  display: inline-flex;
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  height: 1.35rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 1.35rem;
+}
+
+.info-tooltip__trigger:hover,
+.info-tooltip__trigger:focus-visible {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.info-tooltip__content {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  box-shadow: var(--glass-shadow);
+  color: var(--text-primary);
+  font-size: 0.825rem;
+  line-height: 1.4;
+  opacity: 0;
+  padding: 0.75rem;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  visibility: hidden;
+  width: min(280px, calc(100vw - 3rem));
+}
+
+.info-tooltip:hover .info-tooltip__content,
+.info-tooltip:focus-within .info-tooltip__content {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.dashboard-content-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-section-header {
+  border-left: 3px solid var(--accent-primary);
+  max-width: 720px;
+  padding-left: 1rem;
+}
+
+.dashboard-section-header p {
+  color: var(--accent-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.dashboard-section-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.dashboard-section-header span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /* Basic Layout Utility */
 .dashboard-layout {
   display: flex;
@@ -92,12 +182,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .dashboard-main {
   flex-grow: 1;
+  margin: 0 auto;
+  max-width: 1440px;
   padding: 2rem;
-  margin-left: var(--sidebar-width);
 }
 
 @media (max-width: 768px) {
   .dashboard-main {
-    margin-left: 0;
+    padding: 1.25rem;
   }
 }
