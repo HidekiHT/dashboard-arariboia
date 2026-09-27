@@ -2,6 +2,10 @@
 
 Dashboard local em Next.js para acompanhar usuários, transações, benefícios, comércios e indicadores da rede e-Dinheiro em Niterói.
 
+## Demonstração estática
+
+Para visualizar uma versão estática, preparada para fins de demonstração do painel e de algumas de suas visualizações, acesse a [apresentação no GitHub Pages](https://hidekiht.github.io/dashboard-arariboia/). Ela não representa o dashboard em sua totalidade.
+
 ## Requisitos
 
 - Node.js 20 ou superior
