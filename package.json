@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:apresentacao": "node scripts/build-static-presentation.mjs",
     "start": "next start",
     "lint": "eslint"
   },
